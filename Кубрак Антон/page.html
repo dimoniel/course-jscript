@@ -34,10 +34,41 @@
 		//1.Написать функцию, которая возвращает содержимое массива наоборот.
 		function reverseSort(){
 			var numbers = [5, 2, 1, -10, 300,100500, 8, -8];
-			numbers.reverse();
-			alert (numbers);
+			var result = [];
+
+			function reverseMass(numbers){
+				for (var i = numbers.length - 1; i >= 0; i--) {
+					result.push(numbers[i]);
+				};
+				return result;
+			}
+
+
+			alert(reverseMass(numbers));
+			alert(numbers.length)
 		};
 
+// (сделать замыканиями) создать 3 счетчика:  1)  считать в плюс, 2) в минус 3)  вернуть случайное число
+(function (){
+
+var x = 0;
+window.fun = function (){
+
+  return ++x;
+  }
+}())
+undefined
+fun
+(){
+
+  return ++x;
+  }
+fun()
+1
+fun()
+2
+fun()
+3
 </script>
 </body>
 </html>
