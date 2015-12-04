@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+	<meta charset = "utf-8" />
+	<title>Timers</title>
+
+	<style>
+
+		body {
+			margin: 0;
+			background-color: #4AACEB;
+		}
+
+		#wrapper {
+			margin: 0 auto;
+			width: 1000px;
+			font: medium/1  Verdana, sans-serif;
+			background-color: #fff;
+			text-align: center;
+		}
+
+		header h1 {
+			margin: 0 0 10px;
+			line-height: 1.2;
+			border-bottom: 1px dashed #009FF8;
+		}
+
+
+		ul {
+			margin: 0 0 10px;
+			padding: 0;
+			list-style-type: none;
+			font-size: 0;
+		}
+
+		ul li {
+			display: inline-block;
+			margin: 0 25px 0 0;
+			padding: 5px 10px;
+			color: #fff;
+			background-color: #4AACEB;
+			border-radius: 5px;
+			font-size:  18px;
+		}
+
+		ul li:last-of-type {
+			margin: 0;
+		}
+
+		footer {
+			overflow: hidden;
+			padding: 10px;
+			font-size: 12px;
+			color: #fff;
+			background-color: #1A18DB;
+		}
+
+		footer p {
+			margin: 0;
+		}
+
+	</style>
+
+	<script>
+
+			window.onload = function () {
+				var timers;
+				
+				(function () {
+					var timer1 = 0,
+						timer2 = 99,
+						timer3;
+
+					timers = function() {
+						++timer1;
+						if (timer1 < 10) {
+							document.getElementsByTagName("li")[0].innerHTML = "Upper: " + "0" + timer1;
+						} else {
+							document.getElementsByTagName("li")[0].innerHTML = "Upper: " + timer1;
+						}
+
+						if (timer1 == 99) {
+							timer1 = 0;
+						}
+
+						--timer2;
+						if (timer2 < 10) {
+							document.getElementsByTagName("li")[1].innerHTML = "Lower: " + "0" + timer2;
+						} else {
+							document.getElementsByTagName("li")[1].innerHTML = "Lower: " + timer2;
+						}
+
+						if (timer2 == 0) {
+							timer2 = 99;
+						}
+
+						timer3 = Math.floor(Math.random() * 100);
+						if (timer3 < 10) {
+							document.getElementsByTagName("li")[2].innerHTML = "Any number: " + "0" + timer3;
+						} else {
+							document.getElementsByTagName("li")[2].innerHTML = "Any number: " + timer3;
+						}
+					}
+
+				})();
+
+				setInterval(timers, 500);
+			};
+
+	</script>
+	
+	</head>
+
+	<body>
+		
+		<div id="wrapper">
+			<header>
+
+				<h1>Here are the timers</h1>
+			
+			</header>
+
+			<main>
+
+				<ul>
+					<li>Upper: 00</li>
+					<li>Lower: 99</li>
+					<li>Any number: 00</li>
+				</ul>
+
+			</main>
+
+			<footer>
+
+				<small>
+            		&copy;2015 Designed by Dmitry Fedorenko 
+            	</small>
+				
+			</footer>
+
+		</div>
+
+	</body>
+
+</html>
