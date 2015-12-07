@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <script>
+            // возвращает массив перевернутым
+            function hello(arr) {
+                var tempArray = [];
+
+                for (var i=arr.length-1; i>=0; i--) {
+                    tempArray.push(arr[i]);
+                }
+
+                return tempArray;
+            }
+
+
+
+            var mas = [1,4,6,33,34,38,999,56,'ppp',55,11];
+
+            var mas2 = hello(mas);
+
+
+
+            for (var i=0; i<=mas2.length-1; i++) {
+                document.write(mas2[i]+"<br>")
+            }
+        </script>
+    </body>
+</html>
