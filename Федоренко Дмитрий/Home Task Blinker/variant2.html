@@ -1,0 +1,141 @@
+<!doctype html>
+
+<html>
+
+	<head>
+    
+		<meta charset="utf-8" />
+		<title>Blinker - Variant 2</title>
+        <link href="styles/styles.css" rel="stylesheet" />
+        <script>
+			
+			var turns = ['red', 'yellow', 'green'];
+			var count = 0;
+		
+			window.onload = init;
+			
+			function init() {
+				var lights = document.getElementById('blinker');
+				var lamps = lights.getElementsByClassName('blinkerLamp');
+				var started = document.getElementById('startButton');
+				var stopped = document.getElementById('stopButton');
+				var timeInterval = 0;
+				var nameInterval = 0;
+				
+				function onGreen (lamp) {
+					lamp.style.background = "#00c10e";
+				};
+
+				function onRed (lamp) {
+					lamp.style.background = "#ff0000";
+				};
+
+				function onYellow (lamp) {
+					lamp.style.background = "#f6ff00";
+				};
+				
+				function onLamp (lamp, color) {
+					switch (color){
+						case 'green':
+							onGreen(lamp);
+						break;
+						
+						case 'yellow':
+							onYellow(lamp);
+						break;
+						
+						case 'red':
+							onRed(lamp);
+						break;
+					}
+				};
+
+				function offLamp (lamp) {
+					lamp.removeAttribute("style");
+				};
+
+				function nextLamp () {
+					var current = count;
+					var old = count == 0 ? turns.length-1: count-1;
+					onLamp( lamps[current], turns[current] );
+					offLamp( lamps[old] );
+					count = ++count%turns.length;
+				};
+
+				function action (time) {
+					nameInterval = setInterval(function(){ 
+						nextLamp();
+					},time);
+				};
+
+				function stop () {
+					clearInterval(nameInterval);
+				};
+				
+				started.onclick = function() {
+					stop();
+					timeInterval = parseInt(prompt("Временной интервал в мс"));
+					action(timeInterval);
+					started.setAttribute("class", "active");
+				};
+				
+				stopped.onclick = function() {
+					stop();
+					started.removeAttribute("class");
+				};
+				
+			};
+		
+		</script>
+        
+	</head>
+
+  <body>
+    	<div id="wrapper">
+    		<header>
+        		<h1>Let's to play with the Blinker</h1>
+        	</header>
+        
+       		<nav>
+        		<ul>
+            		<li><a href="index.html" title="Variant 1">Variant 1</a></li>
+                	<li class="active"><a href="variant2.html" title="Variant 2">Variant 2</a></li>
+                	<li><a href="variant3.html" title="Variant 3">Variant 3</a></li>
+                	<li><a href="variant4.html" title="Variant 4">Variant 4</a></li>
+                	<li><a href="variant5.html" title="Variant 5">Variant 5</a></li>
+                	<li><a href="variant6.html" title="Variant 6">Variant 6</a></li>
+                	<li><a href="variant7.html" title="Variant 7">Variant 7</a></li>
+                    <li><a href="variant8.html" title="Variant 8">Variant 8</a></li>
+            	</ul>
+        	</nav>
+                        
+        	<main>
+        		<div id="blinker">
+            		<div id="blinkerLamp-1" class="blinkerLamp">
+                	</div>
+                	<div id="blinkerLamp-2" class="blinkerLamp">
+                	</div>
+                	<div id="blinkerLamp-3" class="blinkerLamp">
+                	</div>
+            	</div>
+        	</main>
+            
+            <form>
+            	<fieldset>
+            		<input type="button" id="startButton" value="Start" />
+                    <input type="button" id="stopButton" value="Stop" />
+                </fieldset>	
+            </form>
+                
+        	<footer>
+            	<p>
+        			<small>
+            		&copy;2015 Designed by Dmitry Fedorenko 
+            		</small>
+                </p>
+        	</footer>
+       </div>
+
+	</body>
+
+</html>

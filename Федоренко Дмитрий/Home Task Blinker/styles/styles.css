@@ -1,0 +1,158 @@
+/* CSS Document */
+
+body {
+	margin: 0;
+	background-color: #4AACEB;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 1000px;
+	font: medium/1  Verdana, sans-serif;
+	background-color: #fff;
+	text-align: center;
+}
+
+header h1 {
+	margin: 0 0 10px;
+	line-height: 1.2;
+	border-bottom: 1px dashed #009FF8;
+}
+
+nav {
+	margin: 0 0 10px;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+nav ul li {
+	display: inline-block;
+}
+
+nav ul li a:link,
+nav ul li a:visited,
+nav ul li a:active,
+nav ul li a:focus {
+	display: block;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #D7D7D7;
+	background-color: #009FF8;
+	border-radius: 15px;
+}
+
+nav ul li a:hover {
+	color: #fff;
+	text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
+	background-color: #1A18DB;
+}
+
+nav ul li.active a:link,
+nav ul li.active a:visited,
+nav ul li.active a:hover,
+nav ul li.active a:active, 
+nav ul li.active a:focus {
+	color: #fff;
+	background-color: #1A18DB;
+	text-shadow: none;
+}
+
+form {
+	margin: 0 0 10px;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+			
+input[type="button"] {
+	width: 80px;
+	height: 38px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #D7D7D7;
+	background-color: #009FF8;
+	vertical-align: middle;
+	border: 2px solid #a4c696;
+}
+
+input[type="button"]:hover {
+	color: #fff;
+	text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
+	background-color: #1A18DB;
+}
+
+input[type="button"].active {
+	color: #fff;
+	background-color: #1A18DB;
+	text-shadow: none;
+}
+
+main {
+	margin: 0 0 10px 0;
+}
+
+main>div {
+	width: 750px;
+	background-color: #261F1F;
+	overflow: hidden;
+	margin: 0 auto 10px;
+	padding: 10px 0 10px 50px;
+	border-radius: 10px;
+}
+
+main>div:last-of-type {
+	margin-bottom: 0;
+}
+
+main>div>div {
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin: 0 50px 0 0;
+	border-radius: 50%;
+}
+
+main>div>div#blinkerLamp-1 {
+	background-color: #8F1212;
+}
+
+main>div>div#blinkerLamp-2 {
+	background-color: #969504;
+}
+
+main>div>div#blinkerLamp-3 {
+	background-color: #00460E;
+}
+
+footer {
+	overflow: hidden;
+	padding: 10px;
+	font-size: 12px;
+	color: #fff;
+	background-color: #1A18DB;
+}
+
+footer p {
+	margin: 0;
+}
+
+/* for blinker Constructor */
+
+main>div>div.blinkerLamp-1 {
+	background-color: #8F1212;
+}
+
+main>div>div.blinkerLamp-2 {
+	background-color: #969504;
+}
+
+main>div>div.blinkerLamp-3 {
+	background-color: #00460E;
+}

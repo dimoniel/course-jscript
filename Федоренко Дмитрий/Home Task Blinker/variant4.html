@@ -1,0 +1,141 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Blinker - Variant 4</title>
+        <link href="styles/styles.css" rel="stylesheet" />
+        <script>
+		
+			window.onload = init;
+			
+			function init() {
+				window.blinker1 = new Blinker();
+				blinker1.create();
+				blinker1.on();
+				
+				/*function start() {
+					window.lights.on();
+				};
+			
+				function stop() {
+					window.lights.off();
+				};
+			
+				document.getElementById("startButton").addEventListener("click", start, false);
+				document.getElementById("stopButton").addEventListener("click", stop, false);*/
+			
+			};
+				
+			function Blinker(){
+					
+				var lights = document.createElement('div'),
+					stage = 0,
+					timeLine = [ 1000, 1000, 1000, 1000 ],
+					timeout;
+
+				this.create = function() {
+					this.off();
+					lights.innerHTML = "";
+					lights.setAttribute("class", "blinker");
+					for ( var key = 0; key < 3; key++ ) {
+						lights.innerHTML += '<div class="lamp blinkerLamp-'+ (key+1) +'"></div>';
+					};
+					document.body.getElementsByTagName("main")[0].appendChild(lights);
+				};
+								
+				this.on = function() {
+					this.off();
+					step(0);
+					
+					function step (newStage) {
+						changeStage(newStage);
+						timeout = setTimeout(function() {
+							step( ++stage%4 );
+						}, timeLine[stage] );
+					};
+					
+					function changeStage ( newStage ) {
+						stage = newStage;
+						var lamps = lights.getElementsByClassName('lamp');
+						
+						switch (newStage) {
+							case 0:
+								lamps[0].style.backgroundColor = "#ff0000";
+								lamps[1].removeAttribute("style");
+								lamps[2].removeAttribute("style");
+							break;
+							case 1:
+								lamps[1].style.backgroundColor = "#f6ff00";
+							break;
+							case 2:
+								lamps[0].removeAttribute("style");
+								lamps[1].removeAttribute("style");
+								lamps[2].style.backgroundColor = "#00c10e";
+							break;
+							case 3:
+								lamps[1].style.backgroundColor = "#f6ff00";
+							break;
+						}
+					};
+				};
+				
+				this.off = function() {
+					clearTimeout( timeout );
+				};
+				
+				this.setTimeLine = function( array ) {
+					if ( array && array.length && array.length > 3 ) {
+						timeLine = array;
+					}
+				}
+			};
+			
+			
+		</script>        
+        
+	</head>
+
+  <body>
+    	<div id="wrapper">
+    		<header>
+        		<h1>Let's to play with the Blinker</h1>
+        	</header>
+        
+       		<nav>
+        		<ul>
+            		<li><a href="index.html" title="Variant 1">Variant 1</a></li>
+                	<li><a href="variant2.html" title="Variant 2">Variant 2</a></li>
+                	<li><a href="variant3.html" title="Variant 3">Variant 3</a></li>
+                	<li class="active"><a href="variant4.html" title="Variant 4">Variant 4</a></li>
+                	<li><a href="variant5.html" title="Variant 5">Variant 5</a></li>
+                	<li><a href="variant6.html" title="Variant 6">Variant 6</a></li>
+                	<li><a href="variant7.html" title="Variant 7">Variant 7</a></li>
+                    <li><a href="variant8.html" title="Variant 8">Variant 8</a></li>
+            	</ul>
+        	</nav>
+        
+        	<main>
+        		
+        	</main>
+            
+            <!-- <form>
+            	<fieldset>
+            		<input type="button" id="startButton" value="Start" />
+                    <input type="button" id="stopButton" value="Stop" />
+                </fieldset>	
+            </form>-->
+        
+        	<footer>
+            	<p>
+        			<small>
+            		&copy;2015 Designed by Dmitry Fedorenko 
+            		</small>
+                </p>
+        	</footer>
+       </div>
+
+	</body>
+
+</html>
