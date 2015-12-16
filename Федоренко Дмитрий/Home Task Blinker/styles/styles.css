@@ -70,9 +70,10 @@ fieldset {
 	padding: 0;
 	border: none;
 }
-			
-input[type="button"] {
-	width: 80px;
+		
+input[type="button"],
+input[type="text"] {
+	width: auto;
 	height: 38px;
 	font-size: 16px;
 	font-weight: bold;
@@ -94,16 +95,24 @@ input[type="button"].active {
 	text-shadow: none;
 }
 
+input[type="text"] {
+	width: 75px;
+	background-color:#FFFFFF;
+	box-sizing: border-box;
+	color: #000;
+}
+
 main {
 	margin: 0 0 10px 0;
+	overflow: hidden;
 }
 
 main>div {
-	width: 750px;
+	width: 375px;
 	background-color: #261F1F;
 	overflow: hidden;
 	margin: 0 auto 10px;
-	padding: 10px 0 10px 50px;
+	padding: 10px 0 10px 25px;
 	border-radius: 10px;
 }
 
@@ -113,9 +122,9 @@ main>div:last-of-type {
 
 main>div>div {
 	float: left;
-	width: 200px;
-	height: 200px;
-	margin: 0 50px 0 0;
+	width: 100px;
+	height: 100px;
+	margin: 0 25px 0 0;
 	border-radius: 50%;
 }
 

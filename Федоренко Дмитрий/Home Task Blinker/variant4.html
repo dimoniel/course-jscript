@@ -6,46 +6,71 @@
 		<meta charset="utf-8" />
 		<title>Blinker - Variant 4</title>
         <link href="styles/styles.css" rel="stylesheet" />
+        <style>
+		
+			main>div {
+				float: left;
+				margin-left: 20%
+			}
+			
+			aside {
+				float: right;
+				width: 35%;
+				text-align: left;
+			}
+		
+			fieldset {
+				margin: 0;
+				padding: 10px;
+				border: 2px solid #a4c696;
+			}
+			form fieldset fieldset {
+				margin: 0 0 10px;
+				padding: 0;
+				border: none;
+			}
+			
+			form>fieldset>fieldset:last-of-type {
+				margin: 0;
+			}
+						
+		</style>
         <script>
 		
 			window.onload = init;
+			window.blinkerArray = [];
 			
 			function init() {
-				window.blinker1 = new Blinker();
-				blinker1.create();
-				blinker1.on();
-				
-				/*function start() {
-					window.lights.on();
-				};
-			
-				function stop() {
-					window.lights.off();
-				};
-			
-				document.getElementById("startButton").addEventListener("click", start, false);
-				document.getElementById("stopButton").addEventListener("click", stop, false);*/
-			
+				window.blinkerArray[0] = new Blinker();
+				window.blinkerArray[0].create();
+				control();				
 			};
 				
 			function Blinker(){
 					
 				var lights = document.createElement('div'),
+					lamps = lights.getElementsByClassName('lamp'),
 					stage = 0,
 					timeLine = [ 1000, 1000, 1000, 1000 ],
 					timeout;
+					
+				this.create = creating.bind(this);
+				this.on = start.bind(this);
+				this.off = stop.bind(this);
+				this.setTimers = setTimeLine.bind(this)
+				this.del = removing.bind(this);
 
-				this.create = function() {
+				function creating() {
 					this.off();
 					lights.innerHTML = "";
 					lights.setAttribute("class", "blinker");
 					for ( var key = 0; key < 3; key++ ) {
 						lights.innerHTML += '<div class="lamp blinkerLamp-'+ (key+1) +'"></div>';
 					};
-					document.body.getElementsByTagName("main")[0].appendChild(lights);
+					document.body.getElementsByTagName("MAIN")[0].appendChild(lights);
 				};
 								
-				this.on = function() {
+				function start() {
 					this.off();
 					step(0);
 					
@@ -58,7 +83,6 @@
 					
 					function changeStage ( newStage ) {
 						stage = newStage;
-						var lamps = lights.getElementsByClassName('lamp');
 						
 						switch (newStage) {
 							case 0:
@@ -81,17 +105,83 @@
 					};
 				};
 				
-				this.off = function() {
+				function stop() {
 					clearTimeout( timeout );
+					for (var i = 0; i < lamps.length; i++) {
+						lamps[i].removeAttribute("style");
+					}
 				};
 				
-				this.setTimeLine = function( array ) {
+				function setTimeLine( array ) {
 					if ( array && array.length && array.length > 3 ) {
 						timeLine = array;
 					}
+				};
+				
+				function removing() {
+					document.body.getElementsByTagName("MAIN")[0].removeChild(lights);
 				}
 			};
 			
+			function control() {
+				document.getElementById("addButton").addEventListener("click", add, false);
+				document.getElementById("delButton").addEventListener("click", del, false);
+				document.getElementById("onButton").addEventListener("click", on, false);
+				document.getElementById("offButton").addEventListener("click", off, false);
+				document.getElementById("setButton").addEventListener("click", setTimers, false);
+				
+				function add() {
+					var quantity = Math.abs(parseInt(document.getElementById("addQuantity").value));
+					quantity = (Number(quantity)===quantity) ? quantity : 1;
+					for (var i = 0; i < quantity; i++) {
+						window.blinkerArray.push(new Blinker());
+						window.blinkerArray[window.blinkerArray.length-1].create();
+					}
+				}
+				function del() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					numb = (Number(numb)===numb) ? numb : (window.blinkerArray.length-1);
+					window.blinkerArray[numb].del();
+					window.blinkerArray.splice(numb, 1);
+				}
+				function on() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					if (Number(numb)===numb) {
+					window.blinkerArray[numb].on();
+					} else {
+						for (var i = 0; i < blinkerArray.length; i++) {
+							window.blinkerArray[i].on();
+						}
+					}
+				}
+				function off() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					if (Number(numb)===numb) {
+					window.blinkerArray[numb].off();
+					} else {
+						for (var i = 0; i < blinkerArray.length; i++) {
+							window.blinkerArray[i].off();
+						}
+					}
+				}
+				function setTimers() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					var timeArray = [];
+					for (var i = 0; i < 4; i++) {
+						var per = Math.abs(parseInt(document.getElementById("setTime-" + (i+1)).value))
+						per = (Number(per)===per) ? per : 1000;
+						timeArray.push(per);
+					}
+					if (Number(numb)===numb) {
+					window.blinkerArray[numb].setTimers(timeArray);
+					} else {
+						for (var i = 0; i < blinkerArray.length; i++) {
+							window.blinkerArray[i].setTimers(timeArray);
+						}
+					}
+				}
+								
+			}
 			
 		</script>        
         
@@ -117,16 +207,34 @@
         	</nav>
         
         	<main>
-        		
+            	
+            	<aside>
+        			<form>
+            			<fieldset>
+                        	<fieldset>
+                        		<input type="text" id="addQuantity" placeholder="Quantity" />
+                       			<input type="button" id="addButton" value="Add" />
+                            </fieldset>
+                            <fieldset>
+                        		<input type="text" id="Number" placeholder="Number" />
+                    			<input type="button" id="delButton" value="Del" />
+                        		<input type="button" id="onButton" value="On" />
+                    			<input type="button" id="offButton" value="Off" />
+                            </fieldset>
+                        	<fieldset>
+                        		<fieldset id="setTime">
+                        			<input type="text" id="setTime-1" placeholder="Time-1" />
+                            		<input type="text" id="setTime-2" placeholder="Time-2" />
+                            		<input type="text" id="setTime-3" placeholder="Time-3" />
+                            		<input type="text" id="setTime-4" placeholder="Time-4" />
+                        		</fieldset>
+                            	<input type="button" id="setButton" value="Set Time" />
+                        	</fieldset>
+                		</fieldset>	
+            		</form>
+                </aside>
         	</main>
             
-            <!-- <form>
-            	<fieldset>
-            		<input type="button" id="startButton" value="Start" />
-                    <input type="button" id="stopButton" value="Stop" />
-                </fieldset>	
-            </form>-->
-        
         	<footer>
             	<p>
         			<small>
