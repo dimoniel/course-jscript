@@ -1,0 +1,134 @@
+/* CSS Document */
+body {
+	margin: 0;
+}
+
+#wrapper {
+	background-color: #fff;
+}
+
+div.gallery-holder {
+	position: relative;
+	width: 1020px;
+	margin: 0 auto;
+	background-color: #000000;
+}
+
+div.gallery-holder .prev,
+div.gallery-holder .next {
+	position: absolute;
+	top: 50%;
+	margin-top: -16px;
+	z-index: 3;
+}
+
+div.gallery-holder .prev {
+	left: 25px;
+}
+
+div.gallery-holder .next {
+	right: 25px;
+}
+
+div.gallery-holder .prev a:link,
+div.gallery-holder .next a:link,
+div.gallery-holder .prev a:visited,
+div.gallery-holder .next a:visited {
+	display: block;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	overflow: hidden;
+	text-indent: -9999px;
+}
+
+div.gallery-holder .prev a:hover,
+div.gallery-holder .next a:hover,
+div.gallery-holder .prev a:focus,
+div.gallery-holder .next a:focus  {
+	background-color: #C6C8A1;
+	box-shadow: 0 0 1px 3px #E91619;
+}
+
+div.gallery-holder .prev a:link {
+	background: #ffffcc url(../images/previous.png) 50% 50% no-repeat;
+}
+
+div.gallery-holder .next a:link {
+	background: #ffffcc url(../images/next.png) 50% 50% no-repeat;
+}
+
+div.gallery {
+	overflow: hidden;
+	position: relative;
+	width: 900px;
+	height: 650px;
+	z-index: 1;
+	margin: 0 auto;
+}
+
+div.gallery ul {
+	margin: 0;
+	padding: 0;
+	width: 9999px;
+	list-style-type: none;
+}
+
+div.gallery ul li {
+	float: left;
+	width: 900px;
+	height: 650px;
+}
+
+div.gallery ul li img {
+	display: block;
+	width: auto;
+	margin: 0 auto;
+	height: 100%;
+}
+
+div.paging {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	width: 100%;
+	z-index: 5;
+}
+
+div.paging ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+}
+
+div.paging ul li {
+	display: inline-block;
+	padding: 0 10px;
+	
+}
+
+div.paging ul li a:link,
+div.paging ul li a:visited {
+	display: block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	overflow: hidden;
+	text-indent: -9999px;
+	background-color: #ffffcc;
+	box-shadow: 0 0 1px 1px #000;
+}
+
+div.paging ul li a:hover,
+div.paging ul li a:focus,
+div.paging ul li.active a:link,
+div.paging ul li.active a:visited,
+div.paging ul li.active a:hover,
+div.paging ul li.active a:focus {
+	box-shadow: 0 0 1px 1px #000,
+		inset 0 0 1px 1px #000;
+	background-color: #E91619;
+}
