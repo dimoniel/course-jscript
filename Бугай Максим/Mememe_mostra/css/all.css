@@ -1,0 +1,328 @@
+.line {
+  margin-bottom: 40px;
+  width: 100%;
+  border: 0;
+  border-top: 1px dotted #b1c7dd;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 10px;
+}
+ul {
+  list-style: none;
+  display: inline-block;
+}
+ul li {
+  display: inline-block;
+  margin: 0 0 25px;
+}
+ul li figure {
+  border: 1px solid #c5e2f3;
+  background: #deebf3;
+  width: 307px;
+  height: 307px;
+  margin: 0 0 10px;
+  position: relative;
+}
+ul li figure figcaption {
+  margin: 0 0 10px;
+  color: #146492;
+  position: absolute;
+  top: -25px;
+}
+ul li figure img {
+  width: 290px;
+  height: 290px;
+  border: 9px solid #deebf3;
+}
+ul li p.price {
+  float: left;
+  color: #444545;
+}
+ul li p.price span {
+  color: #4c9242;
+}
+ul li p.cod {
+  float: right;
+  color: #444545;
+}
+ul li p.cod span {
+  color: #676767;
+}
+a {
+  text-decoration: none;
+}
+header,
+nav,
+section,
+article,
+footer,
+aside.banner {
+  width: 960px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+header {
+  height: 73px;
+}
+header h1 {
+  float: left;
+  text-shadow: 4px 4px 2px #e2e3e4;
+  font-size: 63px;
+  font-weight: normal;
+  position: relative;
+}
+header h1 a {
+  color: #669b52;
+}
+header h1 span {
+  color: #218cc8;
+}
+header h1 img {
+  font-family: Comfortaa, Arial, sans-serif;
+  position: absolute;
+  left: 140px;
+  top: 2px;
+}
+header div {
+  padding-top: 20px;
+  height: 100%;
+  text-align: right;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: normal;
+  color: #878787;
+  box-sizing: border-box;
+}
+header div a {
+  font-weight: bold;
+  color: #659a51;
+}
+nav {
+  clear: both;
+}
+nav ul {
+  background: #218cc8;
+  width: 100%;
+  font-size: 0;
+}
+nav ul li {
+  margin: 0;
+  font-size: 20px;
+  vertical-align: middle;
+}
+nav ul li a {
+  padding: 12px 21px;
+  display: block;
+  height: 100%;
+  color: #fff;
+}
+nav ul li a:hover {
+  background: #125c87;
+}
+nav ul li:nth-child(8),
+nav ul li:last-child {
+  width: 18px;
+  height: 16px;
+  margin: 0 0 0 25px;
+  border: 3px solid #7bc6ee;
+  border-radius: 3px;
+  background: #4a6daa linear-gradient(to bottom, #78a3f7 0%, #4a6daa 30%, #4a6daa 80%, #78a3f7 100%);
+}
+nav ul li:nth-child(8) a,
+nav ul li:last-child a {
+  padding: 0px;
+  height: 100%;
+  background: url('../img/ico.png') no-repeat 50% 4px;
+}
+nav ul li:last-child {
+  margin: 0 0 0 10px;
+}
+nav ul li:last-child a {
+  background: url('../img/ico.png') no-repeat 50% -9px;
+}
+article form[name='search'] {
+  float: right;
+}
+article form[name='search'] input[type='text'] {
+  width: 238px;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #a5c796;
+  box-shadow: inset 0 0 0 3px #c5debb;
+}
+article form[name='search'] input[type='submit'] {
+  border: 1px solid #a5c796;
+  background: #c5debb;
+  padding: 9px 12px;
+  color: #637f51;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 16px;
+}
+article form[name='search'] input[type='submit']:hover {
+  background: #a5c796;
+}
+footer {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11px;
+  color: #50868a;
+  font-weight: normal;
+  clear: both;
+}
+footer div {
+  float: right;
+}
+footer div ul {
+  font-size: 0px;
+}
+footer div ul li {
+  font-size: 12px;
+  padding: 0 5px;
+  border-right: 1px solid #50868a;
+}
+footer div ul li:last-child {
+  border: 0px;
+}
+footer div ul li a {
+  color: #50868a;
+}
+.copy {
+  display: inline-block;
+}
+.copy a {
+  text-decoration: none;
+  color: #1f565a;
+}
+.small_padding {
+  margin: 0;
+}
+nav ul li:first-child {
+  background: #125c87;
+  position: relative;
+}
+nav ul li:first-child:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 7px 0 7px;
+  border-color: #125c87 transparent transparent transparent;
+  position: absolute;
+  left: 42%;
+}
+aside.banner {
+  box-sizing: border-box;
+  height: 171px;
+  padding: 18px 22px;
+  background: url(../img/banner.jpg) no-repeat 100%;
+  text-align: right;
+}
+aside.banner h2 {
+  color: #5290b4;
+  font-size: 36px;
+  font-weight: bold;
+}
+aside.banner p {
+  color: #88abbf;
+  margin-bottom: 30px;
+}
+aside.banner button {
+  width: 145px;
+  height: 38px;
+  background: #f28221;
+  border: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+article h2 {
+  font-size: 0;
+  display: none;
+}
+article ul.nav {
+  margin-bottom: 20px;
+}
+article ul.nav li {
+  border: 1px solid #dededd;
+  background: #edecec;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #a2a1a1;
+  cursor: default;
+}
+article ul.nav li:hover {
+ background: #deebf3;
+ color: #146492;
+}
+article ul.nav li:first-child {
+  color: #146492;
+  border: 1px solid #c5e2f3;
+  background: #deebf3;
+}
+.paging {
+  border: 1px solid #c5e2f3;
+  background: #deebf3;
+  margin: 10px 0;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+}
+.paging ul {
+  width: 938px;
+  font-size: 0px;
+  text-align: center;
+}
+.paging ul li {
+  box-sizing: border-box;
+  background: #218cc8;
+  font-size: 20px;
+  height: 48px;
+  text-align: center;
+}
+.paging ul li:first-child {
+  width: 132px;
+  float: left;
+  background: #a5bfcf;
+}
+.paging ul li:first-child a {
+  cursor: default;
+}
+.paging ul li:last-child {
+  width: 93px;
+  float: right;
+  background: #218cc8;
+}
+.paging ul li:hover {
+  background: #125c87;
+}
+.paging ul li:nth-child(2),
+.paging ul li:nth-child(3),
+.paging ul li:nth-child(4) {
+  margin: 0 2.5px;
+  width: 47px;
+  height: 48px;
+}
+.paging ul li:nth-child(2) {
+  background: #125c87;
+}
+.paging ul li a {
+  color: #fff;
+  display: block;
+  height: 100%;
+}
+.paging ul li a:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
