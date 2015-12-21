@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for</title>
+</head>
+<!--строка наоборот -->
+<script>
+    function reverseStr(str) {
+        return str.split("").reverse().join("");
+        }
+    alert(reverseStr("я люблю джаваскрипт"));
+</script>
+<!--вернуть массив одной из граней квадрата-->
+<script>
+    var arr = [];
+    function squareArray(){
+        for(var i =0; i<10; i++){
+            arr.push([]);
+            for(var j =0; j<10; j++){
+                arr[i].push([]);
+                arr[i][j] = Math.floor(Math.random() * 10);
+
+            }
+        }
+    };
+    squareArray();
+    function drawSideOfArray( arr, side ){
+        if( !Array.isArray(arr) || arr.length == 0) return;
+        var arr2 = [];
+        switch(side){
+            case 0:
+                for(var i = 0; i < arr.length ; i++){
+                    arr2.push(arr[0][i]);
+                }
+                break;
+            case 1:
+                for(var i = 0; i < arr.length ; i++){
+                    arr2.push(arr[i][arr.length-1]);
+                }
+                break;
+            case 2:
+                for(var i = 0; i < arr.length ; i++){
+                    arr2.push(arr[arr.length-1][i]);
+                }
+                break;
+            case 3:
+                for(var i = 0; i < arr.length ; i++){
+                    arr2.push(arr[i][0]);
+                }
+                break;
+            default:
+                for(var i = 0; i < arr.length ; i++){
+                    arr2.push(arr[0][i]);
+            }
+        }
+        console.table(arr);
+        console.table(arr2);
+    }
+    drawSideOfArray(arr, 2);
+</script>
+</html>
