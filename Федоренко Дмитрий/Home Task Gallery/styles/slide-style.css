@@ -9,25 +9,27 @@ body {
 
 div.gallery-holder {
 	position: relative;
-	width: 1020px;
+	width: 900px;
 	margin: 0 auto;
 	background-color: #000000;
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 div.gallery-holder .prev,
 div.gallery-holder .next {
 	position: absolute;
-	top: 50%;
-	margin-top: -16px;
+	top: 0;
+	height: 100%;
 	z-index: 3;
 }
 
 div.gallery-holder .prev {
-	left: 25px;
+	left: 0;
 }
 
 div.gallery-holder .next {
-	right: 25px;
+	right: 0;
 }
 
 div.gallery-holder .prev a:link,
@@ -35,27 +37,32 @@ div.gallery-holder .next a:link,
 div.gallery-holder .prev a:visited,
 div.gallery-holder .next a:visited {
 	display: block;
-	width: 32px;
-	height: 32px;
-	border-radius: 50%;
+	box-sizing: border-box;
+	width: 60px;
+	height: 100%;
+	border: 2px solid #000;
 	overflow: hidden;
 	text-indent: -9999px;
+}
+
+div.gallery-holder .prev a:link,
+div.gallery-holder .prev a:visited {
+	background: #ffffcc url(../images/previous.png) 50% 50% no-repeat;
+	border-radius: 10px 0 0 10px;
+}
+
+div.gallery-holder .next a:link,
+div.gallery-holder .next a:visited {
+	background: #ffffcc url(../images/next.png) 50% 50% no-repeat;
+	border-radius: 0 10px 10px 0;
 }
 
 div.gallery-holder .prev a:hover,
 div.gallery-holder .next a:hover,
 div.gallery-holder .prev a:focus,
 div.gallery-holder .next a:focus  {
-	background-color: #C6C8A1;
-	box-shadow: 0 0 1px 3px #E91619;
-}
-
-div.gallery-holder .prev a:link {
-	background: #ffffcc url(../images/previous.png) 50% 50% no-repeat;
-}
-
-div.gallery-holder .next a:link {
-	background: #ffffcc url(../images/next.png) 50% 50% no-repeat;
+	background-color:#CCCC88;
+	box-shadow: inset 0 0 10px 5px #ffffcc;
 }
 
 div.gallery {
