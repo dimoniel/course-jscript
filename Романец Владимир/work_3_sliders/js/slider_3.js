@@ -23,6 +23,32 @@
 			document.getElementById('paging').addEventListener('click', this.selectSlide, false);
 			document.body.addEventListener('keydown', this.pressKey, false);
 		}
+		//Распологаем следующий слайд на новой позиции
+		function nextSlidePosition(){
+			var direction = getComputedStyle(list[position]).left.match(/.\d+/)[0];
+			direction = (direction > 0) ? -1 : 1;
+			if (direction > 0){ //при нажатии на previus
+				if (position == 0) {
+					list[list.length - 1].removeAttribute('class');
+					list[list.length - 1].style.left = -610 + 'px';
+				}
+				else{
+					list[position - 1].removeAttribute('class');
+					list[position - 1].style.left = -610 + 'px';
+				}
+			}
+			else{				//при нажатии на next
+				if (position == list.length - 1) {
+					list[0].removeAttribute('class');
+					list[0].style.left = 610 + 'px';
+				}
+				else{
+					list[position + 1].removeAttribute('class');
+					list[position + 1].style.left = 610 + 'px';
+				}
+			}
+			return direction;
+		}
 		//Листаем вправо
 		this.next = function(){
 			if (canIUse){
@@ -61,32 +87,9 @@
 				paginator.push(document.getElementById('paging').children[j]);
 			}
 		};
-
-
 		//Прокручиваем слайды вправо и влево, выделяем в пагинаторе кнопочку соответствующую данному слайду
 		this.move = function(prevPos){
-			var direction = getComputedStyle(list[position]).left.match(/.\d+/)[0];
-			direction = (direction > 0) ? -1 : 1;
-			if (direction > 0){ //при нажатии на previus
-				if (position == 0) {
-					list[list.length - 1].removeAttribute('class');
-					list[list.length - 1].style.left = -610 + 'px';
-				}
-				else{
-					list[position - 1].removeAttribute('class');
-					list[position - 1].style.left = -610 + 'px';
-				}
-			}
-			else{				//при нажатии на next
-				if (position == list.length - 1) {
-					list[0].removeAttribute('class');
-					list[0].style.left = 610 + 'px';
-				}
-				else{
-					list[position + 1].removeAttribute('class');
-					list[position + 1].style.left = 610 + 'px';
-				}
-			}	
+			var direction = nextSlidePosition();
 			list[prevPos].style.left = direction * 610 + 'px';
 			list[position].style.left = 0 + 'px';
 			list[prevPos].className = 'moving';
@@ -95,8 +98,6 @@
 			paginator[prevPos].removeAttribute('class');
 			paginator[position].className = 'current';
 		};
-
-
 		//Метод отображает слайд выбранный спомощью пагинатора
 		this.selectSlide = function(e){
 			e = e || window.event;

@@ -7,11 +7,12 @@
 
 
 	function Navigation(){
-		var prevPos = position = 0;
+		var prevSlide = nextSlide = 0;
 		var paginator = [];
 		var selectPage, width;
 		var nav = this;
 		var canIUse = true;
+		var positionX = positionY = directionX = directionY = 0;
 		setInterval(function(){return canIUse = true}, 1000);
 		//Метод инициализации слайдера
 		nav.init =function (){
@@ -23,51 +24,21 @@
 			document.getElementById('paging').addEventListener('click', this.selectSlide, false);
 			document.body.addEventListener('keydown', this.pressKey, false);
 		}
-		//Распологаем следующий слайд на новой позиции
-		function nextSlidePosition(){
-			var direction = getComputedStyle(list[position]).left.match(/.\d+/)[0];
-			direction = (direction > 0) ? -1 : 1;
-			if (direction > 0){ //при нажатии на previus
-				if (position == 0) {
-					list[list.length - 1].removeAttribute('class');
-					list[list.length - 1].style.transform = 'rotate(0deg)';
-					list[list.length - 1].style.left = -610 + 'px';
-				}
-				else{
-					list[position - 1].removeAttribute('class');
-					list[position - 1].style.transform = 'rotate(0deg)';
-					list[position - 1].style.left = -610 + 'px';
-				}
-			}
-			else{				//при нажатии на next
-				if (position == list.length - 1) {
-					list[0].removeAttribute('class');
-					list[0].style.transform = 'rotate(0deg)';
-					list[0].style.left = 610 + 'px';
-				}
-				else{
-					list[position + 1].removeAttribute('class');
-					list[position + 1].style.transform = 'rotate(0deg)';
-					list[position + 1].style.left = 610 + 'px';
-				}
-			}
-			return direction;
-		}
 		//Листаем вправо
 		this.next = function(){
 			if (canIUse){
-				prevPos = position;
-				position += (position == list.length - 1) ? -(list.length-1) : 1;
-				nav.move(prevPos);
+				prevSlide = nextSlide;
+				nextSlide += (nextSlide == list.length - 1) ? -(list.length - 1) : 1;
+				nav.move(prevSlide, 1);
 				canIUse = false;
 			}
 		};
 		//Листаем влево
 		this.previus = function(){
 			if (canIUse){
-				prevPos = position;
-				position -= position > 0 ? 1 : -(list.length-1);
-				nav.move(prevPos);
+				prevSlide = nextSlide;
+				nextSlide -= nextSlide > 0 ? 1 : -(list.length - 1);
+				nav.move(prevSlide, -1);
 				canIUse = false;
 			}
 		};
@@ -91,28 +62,69 @@
 				paginator.push(document.getElementById('paging').children[j]);
 			}
 		};
+		//Генерируем координаты расположения слайдов
+		function coordinates(){
+			directionX = (Math.random() - Math.random() <= 0) ? -1 : 1;
+			directionY = (Math.random() - Math.random() < 0) ? -1 : 1;
+			positionX = Math.random() * (1300 - 0) + 0;
+			if (positionX >= 610){
+				positionY = Math.random() * (1000 - 0) + 0;
+			}
+			else {
+				positionY = Math.random() * (1000 - 457) + 457;
+			}
+		}
+		//Распологаем следующий слайд на новой позиции
+		function nextSlidePosition(slide){
+			if (slide == -1){ //при нажатии на previus
+				if (nextSlide == 0) {
+					list[list.length - 1].removeAttribute('class');
+					list[list.length - 1].style.left = directionX * positionX + 'px';
+					list[list.length - 1].style.top = directionY * positionY + 'px';
+				}
+				else{
+					list[nextSlide - 1].removeAttribute('class');
+					list[nextSlide - 1].style.left = directionX * positionX + 'px';
+					list[nextSlide - 1].style.top = directionY * positionY + 'px';
+				}
+			}
+			else{				//при нажатии на next
+				if (nextSlide == list.length - 1) {
+					list[0].removeAttribute('class');
+					list[0].style.left = directionX * positionX + 'px';
+					list[0].style.top = directionY * positionY + 'px';
+				}
+				else{
+					list[nextSlide + 1].removeAttribute('class');
+					list[nextSlide + 1].style.left = directionX * positionX + 'px';
+					list[nextSlide + 1].style.top = directionY * positionY + 'px';
+				}
+			}	
+		}
 		//Прокручиваем слайды вправо и влево, выделяем в пагинаторе кнопочку соответствующую данному слайду
-		this.move = function(prevPos){
-			var direction = nextSlidePosition();	
-			list[prevPos].style.left = direction * 610 + 'px';
-			list[prevPos].style.transform = 'rotate(' + direction * 720 +'deg)';
-			list[position].style.left = 0 + 'px';
-			list[position].style.transform = 'rotate(' + direction * 360 +'deg)';
-			list[prevPos].className = 'moving';
-			list[position].className = 'moving';
+		this.move = function(prevSlide, slide){
+			coordinates();
+			nextSlidePosition(slide);
+			coordinates();
+			list[prevSlide].style.left = directionX * positionX + 'px';
+			list[prevSlide].style.top = directionY * positionY + 'px';
+			list[nextSlide].style.left = 0 + 'px';
+			list[nextSlide].style.top = 0 + 'px';
+			list[prevSlide].className = 'moving';
+			list[nextSlide].className = 'moving';
 
-			paginator[prevPos].removeAttribute('class');
-			paginator[position].className = 'current';
+			paginator[prevSlide].removeAttribute('class');
+			paginator[nextSlide].className = 'current';
 		};
 		//Метод отображает слайд выбранный спомощью пагинатора
 		this.selectSlide = function(e){
 			e = e || window.event;
 			selectPage = e.target || e.srcElement;
-			prevPos = position;
+			prevSlide = nextSlide;
 			for (var i = 0; i < paginator.length; i++){
 				if (selectPage === paginator[i]){
-					position = i;
-					nav.move(prevPos);
+					nextSlide = i;
+					nav.move(prevSlide);
 				};
 			};
 		};
