@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>lesson10</title>
+</head>
+<body>
+    <!--часы-->
+   <div class="wrapper">
+        <p id="clock"></p>
+   </div>
+    <style>
+        body{
+            margin: 0;
+        }
+        .wrapper{
+            width: 500px;
+            margin: 35px auto;
+            text-align: center;
+        }
+        #clock{
+            color: #000;
+            font:300 34px/40px  Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 15px;
+            display: inline-block;
+            border: 8px double #ccc;
+        }
+    </style>
+    <script>
+        function Clock() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+            if (seconds < 10) seconds = "0" + seconds;
+            document.getElementById("clock").innerHTML = hours + ":" + minutes + ":" + seconds;
+            setTimeout("Clock()", 1000);
+        }
+        Clock();
+    </script>
+    <!--clock_2-->
+    <div class="wrapper">
+        <div class="clock2">
+            <div class="hours-box">
+                <div class="hours"></div>
+            </div>
+            <div class="minutes-box">
+                <div class="minutes"></div>
+            </div>
+            <div class="seconds-box">
+                <div class="seconds"></div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .clock2{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #2892c6;
+            box-shadow: 0 0 7px #2892c6 inset;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            background: rgb(135,224,253);
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM4N2UwZmQiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiM1M2NiZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDVhYmUwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -moz-radial-gradient(center, ellipse cover,  rgba(135,224,253,1) 0%, rgba(83,203,241,1) 40%, rgba(5,171,224,1) 100%);
+            background: -webkit-radial-gradient(center, ellipse cover,  rgba(135,224,253,1) 0%,rgba(83,203,241,1) 40%,rgba(5,171,224,1) 100%);
+            background: radial-gradient(ellipse at center,  rgba(135,224,253,1) 0%,rgba(83,203,241,1) 40%,rgba(5,171,224,1) 100%);
+        }
+        .clock2:after{
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2892c6;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -5px 0 0 -5px;
+        }
+        .hours-box,
+        .minutes-box,
+        .seconds-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .hours,
+        .minutes,
+        .seconds{
+            background: #fff;
+            position: absolute;
+        }
+        .hours {
+            width: 6px;
+            height: 50px;
+            top: 25%;
+            left: 50%;
+            margin: 0 0 0 -3px;
+        }
+        .minutes {
+            width: 4px;
+            height: 65px;
+            left: 50%;
+            top: 20%;
+            margin: 0 0 0 -2px;
+        }
+        .seconds {
+            width: 2px;
+            height: 100px;
+            left: 50%;
+            top: 10%;
+            margin: 0 0 0 -1px;
+        }
+        @keyframes rotate {
+            100% {
+                transform: rotateZ(360deg);
+                -moz-transform: rotateZ(360deg);
+                -webkit-transform: rotateZ(360deg);
+                -o-transform: rotateZ(360deg);
+                -ms-transform: rotateZ(360deg);
+            }
+        }
+        .hours-box {
+            animation: rotate 43200s infinite linear;
+        }
+        .minutes-box {
+            animation: rotate 3600s infinite linear;
+        }
+        .seconds-box {
+            animation: rotate 60s infinite linear;
+        }
+    </style>
+</body>
+</html>
