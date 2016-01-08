@@ -77,31 +77,36 @@ h4 {
 	height: 132px;
 	position: absolute;
 }
-.logo {
+header .logo {
+	color: #fffafa;
+	font-size: 30px;
 	float:left;
 	height: 24px;
-	padding-top: 40px;
-	padding-bottom: 38px;
+	padding-top: 57px;
+	padding-bottom: 37px;
+}
+header .logo span{
+	color: #ffc600;
+	font-weight: bold;
 }
 .main {
-	width: 350px;
+	width: 400px;
 	float: right;
 	text-align: center;
+	margin-top: 60px;
 }
 .main ul li {
 	display: inline-block;
 }
 
 .main ul li a {
-	display: block;
 	text-decoration: none;
 	font: 11px Arial; 
 	font-weight: bold;
 	color: #fff;
 	line-height: 8px;
-	padding-left: 23px;
-	padding-bottom: 48px;
-	padding-top: 60px;
+	
+	margin-left: 33px;
 }
 .wrapper{
 	width: 950px;
@@ -163,6 +168,7 @@ h4 {
 }
 .btn:hover{
 	background: #f0ede0;
+	cursor: pointer;
 }
 
 .main a {
@@ -236,12 +242,15 @@ h4 {
 	background: #f0ede0;
 	color: #656565;
 }
+.click button:hover {
+	cursor: pointer;
+}
 .copy {
 	float: right;
 	width: 310px;
 	color: #656565;
 }
-.downlogo {
+footer .logo {
 	float: left;
 	color: #656565;
 }
@@ -304,7 +313,7 @@ footer {
 .contup {
 	padding: 21px 30px 12px 17px;
 }
-.contbut {
+.contbut{
 	width: 142px;
 	height: 34px;
 	margin: 13px 0 0 125px;
@@ -312,7 +321,11 @@ footer {
 	font-weight: bold;
 	color: #656565;
 	background: #fdfbf1;
-	border: 1px solid #dbd6c6;
+	
+}
+.contbut:hover{
+	background: #f0ede0;
+	cursor: pointer;
 }
 .adres {
 	font-weight: bold;
