@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>lesson11</title>
+</head>
+<body>
+<!--calender-->
+    <style>
+        table{
+            background: #ccc;
+            border: 1px solid #ddd;
+            color: #808080;
+            font:14px/17px Arial, Helvetica, sans-serif;
+        }
+        td{
+            width: 30px;
+            background: #fff;
+            text-align: center;
+        }
+        #month{
+            color: #4890f0;
+            background: #fafafa;
+            padding: 5px 0;
+            font:bold 16px/19px Arial, Helvetica, sans-serif;
+        }
+        .now_day{
+            background: #36aac6;
+            color: #fff;
+        }
+        .holiday{
+            background: #a6f0bc;
+        }
+    </style>
+    <script>
+        function calendar() {
+            var data = new Date();
+            var year = data.getFullYear();
+            var month = data.getMonth();
+            var today = data.getDate();
+            var first_day = new Date(year,month,1);
+            var first_wday = first_day.getDay();
+            var oneHour = 1000 * 60 * 60;
+            var oneDay = oneHour * 24;
+            var nextMonth = new Date(year, month + 1, 1);
+            var last_date = Math.ceil((nextMonth.getTime() - first_day.getTime() - oneHour)/oneDay);
+            var n = new Array ("January","February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+            var body = document.getElementsByTagName("body")[0];
+            var day_table = document.createElement("table");
+            day_table.id = "calendar";
+            body.appendChild(day_table);
+            day_table.innerHTML = "<tr><td colspan=7 rowspan=1 id='month'>"+n[month]+"</td></tr>"+
+                    "<tr id='weekday'><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td class='holiday'>Sat</td><td class='holiday'>Sun</td></tr>"+
+                    "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"+
+                    "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"+
+                    "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"+
+                    "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"+
+                    "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+            for (i=1;i < last_date;i++) {
+                var td_d = document.getElementsByTagName("td");
+                if (i == first_wday) {
+                    td_d[0].innerHTML = n[month];
+                    td_d[7+i].innerHTML=1;
+                    for (j=0;j<last_date;j++)
+                        td_d[7+i+j].innerHTML = 1+j;
+                    for (z=0;z<last_date;z++)
+                        if (td_d[z].innerHTML == today) {
+                            td_d[z].className = "now_day";
+                        }
+                }
+            }
+        }
+        calendar();
+    </script>
