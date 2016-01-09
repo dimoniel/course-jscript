@@ -22,72 +22,73 @@ body {
 	height: 1297px;
 }
 #wrapper header {
-	height: 132px;
-	width: 980px;
-	margin: 0 auto;
-	overflow: hidden;
-		.logo {
-			padding-top: 44px;
-				a {
-					text-decoration: none;
-					color: white;
-					font-size: 30px;
-					display: block;
-					padding: 5px;
-					width: 265px;
-					float: left;
-					font-family: MyriadPro-Regular;
-					text-shadow: 1px 1px 10px black;
-						mark {
-							background: none;
-							color: #ffc600;
-							font-weight: bold;
-							font-family: MyriadPro-Bold;
-						}
-				}
-		}
-		nav {
-			overflow: hidden;
-			width: 300px;
-			float: right;
-			padding-top: 5px;
-				ul {
-					margin: 0;
-					padding: 0;
-					list-style: none;
-					overflow: hidden;
-						li {
+		height: 132px;
+		width: 980px;
+		margin: 0 auto;
+		overflow: hidden;
+			.header-row {
+				padding-top: 44px;
+				overflow: hidden;
+						.logo {
+							overflow: hidden;
+							width: 275px;
 							float: left;
-							width: 25%;
-							text-align: right;
 								a {
-									color: white;
-									font-size: 8px;
-									padding: 0;
 									text-decoration: none;
-										&:last-child {
-											margin-right: 0;
-										}
-										&:hover {
+									color: white;
+									font-size: 30px;
+									display: block;
+									padding: 5px;
+									width: 265px;
+									float: left;
+									font-family: MyriadPro-Regular;
+									text-shadow: 1px 1px 10px black;
+										mark {
+											background: none;
 											color: #ffc600;
+											font-weight: bold;
+											font-family: MyriadPro-Bold;
 										}
 								}
-								.active {
-									color: #ffc600;
-									text-decoration: underline;
+						}
+						nav {
+							overflow: hidden;
+							width: 300px;
+							float: right;
+							padding-top: 5px;
+								ul {
+									margin: 0;
+									padding: 0;
+									list-style: none;
+									overflow: hidden;
+										li {
+											float: left;
+											width: 25%;
+											text-align: right;
+												a {
+													color: white;
+													font-size: 8px;
+													padding: 0;
+													text-decoration: none;
+														&:hover {
+															color: #ffc600;
+														}
+												}
+												.active {
+													color: #ffc600;
+													text-decoration: underline;
+												}
+										}
 								}
 						}
 				}
-		}
 }
 #wrapper .main {
 	width: 978px;
 	border: 1px solid;
 	border-color: #eeeadc;
-	margin: 0 auto;
+	margin: -15px auto 20px;
 	background: white;
-	margin-bottom: 20px;
-	margin-top: -15px;
 		hr {
 			width: 95%;
 			margin: 0 auto;
@@ -113,7 +114,7 @@ body {
 		}
 		.box {
 			overflow: hidden;
-			width: 980px;
+			width: 948px;
 			margin: 0 15px 15px 15px;
 			padding-top: 30px;
 				.main-content {
@@ -208,8 +209,9 @@ body {
 											overflow: hidden;
 												li {
 													float: left;
+													margin-left: 10px;
 														&:first-child {
-															margin-left: 15px;
+															margin-left: 25px;
 														}
 														a {
 															text-decoration: none;
@@ -221,7 +223,6 @@ body {
 															border-color: #dbd6c6;
 															text-align: center;
 															color: #656565;
-															margin-left: 10px;
 															font-weight: bold;
 																&:after {
 																	content: "";
@@ -248,14 +249,14 @@ body {
 								}
 						}
 				}
-				.align-right {
-					width: 277px;
+				.comments {
+					width: 275px;
 					padding: 8px;
 					border: 1px solid;
 					border-color: #eeeadc;
 					background: #fdfbf1;
 					float: left;
-					margin: 0 15px 10px 10px;
+					margin: 0 0 10px 10px;
 						section {
 							height: 325px;
 							background: white;
@@ -283,14 +284,14 @@ body {
 								}
 						}
 				}
-				.advertise {
-					width: 277px;
+				.banner {
+					width: 275px;
 					padding: 8px;
 					border: 1px solid;
 					border-color: #eeeadc;
 					background: #fdfbf1;
 					float: left;
-					margin: 0 15px 10px 10px;
+					margin: 0 0 10px 10px;
 						a {
 							text-decoration: none;
 							color: #656565;
@@ -319,29 +320,35 @@ footer {
 	margin: 0 auto;
 	overflow: hidden;
 	padding-top: 20px;
-		a {
-			text-decoration: none;
-			color: #8d8d8d;
+		.logo {
+			overflow: hidden;
+			width: 140px;
 			float: left;
-			font-family: MyriadPro-Regular;
-			margin-left: 15px;
-				mark {
-					color: #656565;
-					background: none;
-					font-weight: bold;
-					font-family: MyriadPro-Bold;
-				}
-		}
-		span {
-			color: #8d8d8d;
-			text-align: right;
-			float: right;
-			margin-right: 20px;
 				a {
 					text-decoration: none;
-					color: #656565;
-					float: right;
-					margin-left: 5px;
+					color: #8d8d8d;
+					float: left;
+					font-family: MyriadPro-Regular;
+					margin-left: 15px;
+						mark {
+							color: #656565;
+							background: none;
+							font-weight: bold;
+							font-family: MyriadPro-Bold;
+						}
+						&:hover {
+							color: #8d8d8d;
+						}
+				}
+		}
+		a {
+			text-align: right;
+			text-decoration: none;
+			color: #656565;
+			float: right;
+			margin-right: 20px;
+				&:hover {
+					color: darken(#656565, 30%);
 				}
 		}
 }
