@@ -32,9 +32,11 @@ font-family: arial;}
 							color: green;
 							font-size: 50px;
 							overflow: hidden;
+							text-shadow: 0px 0px 5px green;
 								strong {
 									float: left;
 									color: @dark-blue;
+
 									strong {
 										float: left;
 										color: green;
@@ -280,7 +282,7 @@ font-family: arial;}
 						border-bottom: none;
 						padding-bottom: 0;
 					}
-					.box-item {
+					li {
 						float: left;
 						margin-left: 5%;
 						width: 30%;
@@ -348,7 +350,7 @@ font-family: arial;}
 								width: 48px;
 								height: 48px;
 								float: left;
-								margin-right: 5px;
+								margin: 0 5px 0 0;
 								a {
 									text-decoration: none;
 									display: block;
@@ -390,6 +392,9 @@ font-family: arial;}
 								display: inline-block;
 								height: 100%;
 								vertical-align: middle;
+							}
+							&:hover {
+								background: @dark-blue;
 							}
 					}
 					.next {
@@ -547,23 +552,37 @@ font-family: arial;}
 		footer {
 			overflow: hidden;
 			padding-top: 10px;
-			span {
-				color: @dark-blue;
-				float: left;
-			}
+			margin-bottom: 20px;
+				a {
+					color: @blue;
+					text-decoration: none;
+					display: block;
+					width: 290px;
+					float: left;
+					font-size: 11px;
+					height: 30px;
+						&:hover {
+							color: @dark-blue;
+						}
+				}
 			ul {
 				float: right;
 				height: @height;
 				list-style: none;
-				margin: 0 0 20px 0;
+				margin: 0;
 				padding: 0;
 				li {
 					display: inline-block;
 					margin-left: 5px;
+					span {
+						float: left;
+						display: inline-block;
+					}
 					a {
 						text-decoration: none;
 						color: black;
 						display: block;
+						font-size: 11px;
 						height: 100%;
 						width: 100%;
 							&:hover {

@@ -26,55 +26,58 @@ body {
 	width: 980px;
 	margin: 0 auto;
 	overflow: hidden;
-		.logo {
+		.header-row {
 			padding-top: 44px;
-				a {
-					text-decoration: none;
-					color: white;
-					font-size: 30px;
-					display: block;
-					padding: 5px;
-					width: 265px;
+			overflow: hidden;
+				.logo {
+					overflow: hidden;
+					width: 275px;
 					float: left;
-					font-family: MyriadPro-Regular;
-					text-shadow: 1px 1px 10px black;
-						mark {
-							background: none;
-							color: #ffc600;
-							font-weight: bold;
-							font-family: MyriadPro-Bold;
+						a {
+							text-decoration: none;
+							color: white;
+							font-size: 30px;
+							display: block;
+							padding: 5px;
+							width: 265px;
+							float: left;
+							font-family: MyriadPro-Regular;
+							text-shadow: 1px 1px 10px black;
+								mark {
+									background: none;
+									color: #ffc600;
+									font-weight: bold;
+									font-family: MyriadPro-Bold;
+								}
 						}
 				}
-		}
-		nav {
-			overflow: hidden;
-			width: 300px;
-			float: right;
-			padding-top: 5px;
-				ul {
-					margin: 0;
-					padding: 0;
-					list-style: none;
+				nav {
 					overflow: hidden;
-						li {
-							float: left;
-							width: 25%;
-							text-align: right;
-								a {
-									color: white;
-									font-size: 8px;
-									padding: 0;
-									text-decoration: none;
-										&:last-child {
-											margin-right: 0;
+					width: 300px;
+					float: right;
+					padding-top: 5px;
+						ul {
+							margin: 0;
+							padding: 0;
+							list-style: none;
+							overflow: hidden;
+								li {
+									float: left;
+									width: 25%;
+									text-align: right;
+										a {
+											color: white;
+											font-size: 8px;
+											padding: 0;
+											text-decoration: none;
+												&:hover {
+													color: #ffc600;
+												}
 										}
-										&:hover {
+										.active {
 											color: #ffc600;
+											text-decoration: underline;
 										}
-								}
-								.active {
-									color: #ffc600;
-									text-decoration: underline;
 								}
 						}
 				}
@@ -84,10 +87,8 @@ body {
 	width: 978px;
 	border: 1px solid;
 	border-color: #eeeadc;
-	margin: 0 auto;
+	margin: -15px auto 20px;
 	background: white;
-	margin-bottom: 20px;
-	margin-top: -15px;
 		strong {
 			display: inline-block;
 			padding-top: 30px;
@@ -105,7 +106,7 @@ body {
 		}
 		.box {
 			overflow: hidden;
-			width: 980px;
+			width: 948px;
 			margin: 0 15px 15px 15px;
 			padding-top: 30px;
 				.main-content {
@@ -207,10 +208,6 @@ body {
 																	background: #fdfbf1;
 																	border: 1px solid;
 																	border-color: #dbd6c6;
-																		&:hover {
-																			background: darken(#fdfbf1, 10%);
-																			cursor: pointer;
-																		}
 																}
 														}
 												}
@@ -218,14 +215,14 @@ body {
 								}
 						}
 				}
-				.align-right {
-					width: 270px;
+				aside {
+					width: 275px;
 					padding: 8px;
 					border: 1px solid;
 					border-color: #eeeadc;
 					background: #fdfbf1;
 					float: left;
-					margin: 0 15px 10px 10px;
+					margin: 0 0 10px 10px;
 					height: 293px;
 						section {
 							height: 275px;
@@ -283,29 +280,35 @@ footer {
 	margin: 0 auto;
 	overflow: hidden;
 	padding-top: 20px;
-		a {
-			text-decoration: none;
-			color: #8d8d8d;
+		.logo {
+			overflow: hidden;
+			width: 140px;
 			float: left;
-			font-family: MyriadPro-Regular;
-			margin-left: 15px;
-				mark {
-					color: #656565;
-					background: none;
-					font-weight: bold;
-					font-family: MyriadPro-Bold;
-				}
-		}
-		span {
-			color: #8d8d8d;
-			text-align: right;
-			float: right;
-			margin-right: 20px;
 				a {
 					text-decoration: none;
-					color: #656565;
-					float: right;
-					margin-left: 5px;
+					color: #8d8d8d;
+					float: left;
+					font-family: MyriadPro-Regular;
+					margin-left: 15px;
+						mark {
+							color: #656565;
+							background: none;
+							font-weight: bold;
+							font-family: MyriadPro-Bold;
+						}
+						&:hover {
+							color: #8d8d8d;
+						}
+				}
+		}
+		a {
+			text-align: right;
+			text-decoration: none;
+			color: #656565;
+			float: right;
+			margin-right: 20px;
+				&:hover {
+					color: darken(#656565, 30%);
 				}
 		}
 }

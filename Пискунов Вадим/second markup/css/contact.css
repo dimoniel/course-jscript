@@ -27,10 +27,16 @@ body {
   margin: 0 auto;
   overflow: hidden;
 }
-#wrapper header .logo {
+#wrapper header .header-row {
   padding-top: 44px;
+  overflow: hidden;
 }
-#wrapper header .logo a {
+#wrapper header .header-row .logo {
+  overflow: hidden;
+  width: 275px;
+  float: left;
+}
+#wrapper header .header-row .logo a {
   text-decoration: none;
   color: white;
   font-size: 30px;
@@ -41,42 +47,39 @@ body {
   font-family: MyriadPro-Regular;
   text-shadow: 1px 1px 10px black;
 }
-#wrapper header .logo a mark {
+#wrapper header .header-row .logo a mark {
   background: none;
   color: #ffc600;
   font-weight: bold;
   font-family: MyriadPro-Bold;
 }
-#wrapper header nav {
+#wrapper header .header-row nav {
   overflow: hidden;
   width: 300px;
   float: right;
   padding-top: 5px;
 }
-#wrapper header nav ul {
+#wrapper header .header-row nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
 }
-#wrapper header nav ul li {
+#wrapper header .header-row nav ul li {
   float: left;
   width: 25%;
   text-align: right;
 }
-#wrapper header nav ul li a {
+#wrapper header .header-row nav ul li a {
   color: white;
   font-size: 8px;
   padding: 0;
   text-decoration: none;
 }
-#wrapper header nav ul li a:last-child {
-  margin-right: 0;
-}
-#wrapper header nav ul li a:hover {
+#wrapper header .header-row nav ul li a:hover {
   color: #ffc600;
 }
-#wrapper header nav ul li .active {
+#wrapper header .header-row nav ul li .active {
   color: #ffc600;
   text-decoration: underline;
 }
@@ -84,10 +87,8 @@ body {
   width: 978px;
   border: 1px solid;
   border-color: #eeeadc;
-  margin: 0 auto;
+  margin: -15px auto 20px;
   background: white;
-  margin-bottom: 20px;
-  margin-top: -15px;
 }
 #wrapper .main strong {
   display: inline-block;
@@ -106,7 +107,7 @@ body {
 }
 #wrapper .main .box {
   overflow: hidden;
-  width: 980px;
+  width: 948px;
   margin: 0 15px 15px 15px;
   padding-top: 30px;
 }
@@ -216,28 +217,24 @@ body {
   border: 1px solid;
   border-color: #dbd6c6;
 }
-#wrapper .main .box .main-content section .form-box .inner-form-box fieldset form .submit:hover {
-  background: #f7eec4;
-  cursor: pointer;
-}
-#wrapper .main .box .align-right {
-  width: 270px;
+#wrapper .main .box aside {
+  width: 275px;
   padding: 8px;
   border: 1px solid;
   border-color: #eeeadc;
   background: #fdfbf1;
   float: left;
-  margin: 0 15px 10px 10px;
+  margin: 0 0 10px 10px;
   height: 293px;
 }
-#wrapper .main .box .align-right section {
+#wrapper .main .box aside section {
   height: 275px;
   background: white;
   padding: 8px;
   border: 1px solid;
   border-color: #eeeadc;
 }
-#wrapper .main .box .align-right section span {
+#wrapper .main .box aside section span {
   margin: 0 10px 0 10px;
   padding: 10px 0 20px 0;
   text-align: justify;
@@ -249,7 +246,7 @@ body {
   border-color: #dedede;
   line-height: 175%;
 }
-#wrapper .main .box .align-right section strong {
+#wrapper .main .box aside section strong {
   font-size: 11px;
   width: 222px;
   padding: 15px 0 15px 0;
@@ -258,7 +255,7 @@ body {
   margin-right: 15px;
   line-height: 175%;
 }
-#wrapper .main .box .align-right section a {
+#wrapper .main .box aside section a {
   padding: 15px 0 10px 0;
   width: 252px;
   color: blue;
@@ -269,10 +266,10 @@ body {
   color: #40969f;
   font-weight: bold;
 }
-#wrapper .main .box .align-right section a:hover {
+#wrapper .main .box aside section a:hover {
   color: #31747b;
 }
-#wrapper .main .box .align-right section img {
+#wrapper .main .box aside section img {
   float: left;
   display: block;
   margin: 0 10px 20px 0;
@@ -284,28 +281,34 @@ footer {
   overflow: hidden;
   padding-top: 20px;
 }
-footer a {
+footer .logo {
+  overflow: hidden;
+  width: 140px;
+  float: left;
+}
+footer .logo a {
   text-decoration: none;
   color: #8d8d8d;
   float: left;
   font-family: MyriadPro-Regular;
   margin-left: 15px;
 }
-footer a mark {
+footer .logo a mark {
   color: #656565;
   background: none;
   font-weight: bold;
   font-family: MyriadPro-Bold;
 }
-footer span {
+footer .logo a:hover {
   color: #8d8d8d;
-  text-align: right;
-  float: right;
-  margin-right: 20px;
 }
-footer span a {
+footer a {
+  text-align: right;
   text-decoration: none;
   color: #656565;
   float: right;
-  margin-left: 5px;
+  margin-right: 20px;
+}
+footer a:hover {
+  color: #181818;
 }
