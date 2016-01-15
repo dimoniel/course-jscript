@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Форма</title>
+	<link rel="stylesheet" href="css/all.css">
+	<script src='script/validation.js'></script>
+</head>
+<body>
+	<div id="wrapper">
+		<form action="#" name="user">
+			<fieldset>
+				<legend>Контактная информация</legend>
+				<p>
+					<label>Имя<input type='text' value='' name='firstName'></label>
+					<span></span>
+				</p>
+				<p>
+					<label>Фамилия<input type='text' value='' name='lastName'></label>
+					<span></span>
+				</p>
+				<p>
+					<label>E-mail<input type='text' value=''  name='email'></label>
+					<span></span>
+				</p>
+				<p>
+					<label>Номер телефона<input  type='text' value='' placeholder='+38(057)1234567' name='phone'></label>
+					<span></span>
+				</p>
+				<p>
+					<label>Пароль<input type='password' value=''  name='password'></label>
+					<span></span>
+				</p>
+				<p class='btn'><input type='submit' id='validate' value='Отправить'></p>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
