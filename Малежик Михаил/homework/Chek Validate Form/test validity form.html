@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title> test - 1 </title>
+	<style>
+		
+		form{
+			background: lightyellow;
+			width: 600px;
+			margin: 30px auto;
+			outline: 5px solid grey;
+			padding: 5px;
+		}
+		label{
+			display: inline-block;
+			width: 150px;
+			font-family:  monospace;
+			font-size: 18px;
+			
+		}
+		input {
+			width: 250px;
+		}
+		
+	</style>
+	<script > 
+		
+		!(function () {	
+			
+			var namePattern = /^[А-Я]{1}[а-яё]+/,
+				lastNamePattern = /^[А-Я]{1}[а-яё]+/,
+				emailPattern = /[a-z0-9]+[.\-_]?[a-z0-9]+?@[a-z]+\.[a-z]{2,5}/i,
+				telPattern =  /\+\d[-(]?\d{3}[)]?[-]?\d{3}[-]?\d{2}[-]?\d{2}$/,
+				passPattern = /([a-zA-Z0-9]+){8,30}$/;
+				
+				
+				
+			window.onload = function init (){
+								
+			    var firstName = document.getElementById('firstName'),
+				lastName = document.getElementById('lastName'),
+				email = document.getElementById('email'),
+				tel = document.getElementById('tel'),
+				password = document.getElementById('password');
+				
+					
+				firstName.addEventListener('blur',showMsg,false);
+				lastName.addEventListener('blur',showMsg,false);
+				email.addEventListener('blur',showMsg,false);
+				tel.addEventListener('blur',showMsg,false);
+				password.addEventListener('blur',showMsg,false);
+						
+			};
+			
+			
+			
+			function validate (obj){
+							
+				if( obj.name == 'firstName' ) {
+					return (namePattern.test(obj.value))? true : false;
+				}
+				else if( obj.name == 'lastName') {
+					return (lastNamePattern.test(obj.value))? true : false;
+				}
+				else if( obj.name == 'email') {
+					return (emailPattern.test(obj.value))? true : false;
+				}
+				else if( obj.name == 'tel') {
+					return (telPattern.test(obj.value))? true : false;
+				}
+				else if( obj.name == 'password') {
+					return (passPattern.test(obj.value))? true : false;
+				}
+			}
+			
+			function showMsg (){
+				if( validate(this) ){
+					this.nextElementSibling.innerHTML = '&#10004;';
+					this.nextElementSibling.style.color = 'blue';
+					this.style.background = '#fff';
+				}
+				else {
+					this.nextElementSibling.innerHTML = '&#10006; - не корректно';
+					this.nextElementSibling.style.color = 'red';
+					this.style.background = '#ffdddd';
+				}
+			}
+											
+		}());
+			
+			
+	</script>
+</head>
+<body>
+		
+	<form action='' name='form-1'>
+	 	
+		<fieldset> 
+		  <legend> Заполните форму </legend>	
+			<label> Имя : </label>
+			<input	name='firstName' type='text' id='firstName' placeholder='Иван'>
+				<span id='showValidName'></span>
+			
+			<br>
+			<br>
+			
+			<label> Фамилия : </label>
+			<input name='lastName' type='text' id='lastName' placeholder='Иванов'>
+				<span id='showValidSurname'></span>
+				
+			<br>
+			<br>
+			
+			<label> Email : </label>
+			<input name='email' type='text' id='email' placeholder='...@...'>
+				<span id='showValidEmail'></span>
+				
+			<br>
+			<br>
+			
+			<label> Телефон : </label>
+			<input name='tel' type='text' id='tel' placeholder='+x xxx xxx xx xx'>
+				<span id='showValidTel'></span>
+				
+			<br>
+			<br>
+			
+			<label> Пароль : </label>
+			<input name='password' type='text' id='password'>
+				<span id='showValidPass'></span>
+		</fieldset>
+     
+		<input type='submit' value='ОТПРАВИТЬ' id='submit'>
+	   
+	</form>
+	
+</body>
+</html>
