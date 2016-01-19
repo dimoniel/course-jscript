@@ -14,6 +14,7 @@
 		var content = '';
 		if (!some.value){
 			content = '';
+			obj[some.name] = '';
 		}
 		else if (new RegExp(val).test(some.value)){
 			obj[some.name] = some.value;
@@ -21,6 +22,7 @@
 		}
 		else{
 			content = 'incorrect';
+			obj[some.name] = '';
 		};
 		some.parentElement.parentElement.getElementsByTagName('span')[0].className = content;
 	};
