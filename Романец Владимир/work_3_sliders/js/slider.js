@@ -1,18 +1,18 @@
 !function (){
 	window.onload = function (){
 
-	galleryWithPagination = new Gallery({
- 		images: document.getElementById('first-gallery'),
- 		effect: 'slide',
- 		pagination: true,
- 		controls: false
+		galleryWithPagination = new Gallery({
+	 		images: document.getElementById('first-gallery'),
+	 		effect: 'slide',
+	 		pagination: true,
+	 		controls: false
  		});
  
- 	galleryWithControls = new Gallery({
- 		images: document.getElementById('second-gallery'),
- 		effect: 'fade',
- 		pagination: false,
- 		controls: true
+	 	galleryWithControls = new Gallery({
+	 		images: document.getElementById('second-gallery'),
+	 		effect: 'fade',
+	 		pagination: false,
+	 		controls: true
  		});
 
 		galleryWithPagination.init();
