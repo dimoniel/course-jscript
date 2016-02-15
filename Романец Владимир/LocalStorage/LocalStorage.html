@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local Storage</title>
+	<meta charset = 'UTF-8'>
+	<script src = "js/jquery-1.12.0.js"></script>
+	<script type = "text/javascript" src = 'js/todo.js'></script>
+	<link rel="stylesheet" href="css/todolist.css">
+</head>
+<body>
+	<div id = 'wrapper'>
+		<form action = '#' name = 'todoList'>
+			<legend>Редактировать список: </legend>
+			<hr>
+			<p>
+				<input type = 'submit' class = 'btn' value = 'Сохранить'>
+				<input type = 'reset' class = 'btn' id = 'clear' value = 'Очистить Список'>
+			</p>
+		</form>
+		<div class = 'list'>
+			<h3>Список заданий:</h3>
+			<ol id = 'todolist'>
+			</ol>
+		</div>
+	</div>
+</body>
+</html>
