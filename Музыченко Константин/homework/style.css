@@ -1,0 +1,346 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background: #f9f6ea;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body {
+	background: #faf6eb;
+	font: 11px Arial; 
+	color: #8d8d8d;
+	line-height: 20px;
+}
+h1 {
+	font: 36px Arial;
+	font-weight: bold;
+	color: #656565;
+}
+h2 {
+	font: 20px Arial;
+	color: #000;
+	font-weight: bold;
+}
+h4 {
+	font: 11px Arial;
+	font-weight: bold;
+	color: #8d8d8d;
+	line-height: 20px;
+}
+
+.clear {clear: both;}
+#content {
+	width: 980px;
+	margin: 0 auto;
+	position: relative;
+}
+.bg_for_header {
+	background: url(img/bg1.gif) repeat;
+	width: 100%;
+	height: 132px;
+	position: absolute;
+}
+header .logo {
+	color: #fffafa;
+	font-size: 30px;
+	float:left;
+	height: 24px;
+	padding-top: 57px;
+	padding-bottom: 37px;
+}
+header .logo span{
+	color: #ffc600;
+	font-weight: bold;
+}
+.main {
+	width: 400px;
+	float: right;
+	text-align: center;
+	margin-top: 60px;
+}
+.main ul li {
+	display: inline-block;
+}
+
+.main ul li a {
+	text-decoration: none;
+	font: 11px Arial; 
+	font-weight: bold;
+	color: #fff;
+	line-height: 8px;
+	
+	margin-left: 33px;
+}
+.wrapper{
+	width: 950px;
+	background: #fff;
+	padding: 27px 15px 15px 15px;
+}
+.wrapper h2 {
+	float: left;
+}
+.wrapper h2+h2 {
+	float: right;
+	padding-right: 48px;
+}
+.wrap_left {
+	background: #fdfbf1;
+	padding: 9px;
+	border: 1px solid #ebebeb;
+	width: 618px;
+	margin-top: 27px;
+	float: left;
+}
+.wrap_left article {
+	background: #fff;
+	border: 1px solid #ebebeb;
+}
+.wrap_left article section hr {
+	width: 590px;
+	margin: 0 auto;
+}
+.wrap_for_port {
+	float: left;
+	padding: 22px 0px 0 12px;
+	width: 299px;
+}
+.wrap_left article section .wrap_for_port hr {
+	width: 295px;
+}
+.img_portf {
+	float: right;
+	width: 270px;
+	padding: 7px 8px 5px 0;
+}
+.img_portf img {
+	width: 270px;
+}
+.mini {
+	width: 210px;
+	margin-left: 10px;
+}
+
+.btn {
+	margin: 0;
+	height: 32px;
+	width: 141px;
+	font: 14px Arial;
+	font-weight: bold;
+	color: #656565;
+	background: #fdfbf1;
+}
+.btn:hover{
+	background: #f0ede0;
+	cursor: pointer;
+}
+
+.main a {
+	color: white;
+}
+.main ul li a:hover{
+	color: #ffc600;
+	text-decoration: underline;
+	}
+.main ul li a:active{
+	color: #ffc600;
+	text-decoration: underline;
+}
+.page button a {
+	color: #000;
+	display: block;
+	text-decoration: none;
+
+}
+.page {
+	padding: 11px 0 11px 20px;
+	width: 300px;
+}
+.page button {
+	color: #656565;
+	background: #fdfbf1;
+}
+.page button:hover {
+	color: black;
+	background: #f0ede0;
+}
+.port {
+	margin-top: 26px;
+}
+.sidebar {
+	background: #fdfbf1;
+	width: 283px;
+	float: right;
+	padding: 9px;
+	border: 1px solid #ebebeb;
+	margin-top: 27px;
+}
+.sidebar aside {
+	background: #fff;
+	border: 1px solid #ebebeb;
+	padding: 20px 10px 0 14px;
+
+}
+.line {
+	width: 235px;
+	padding: 0 9px 0 12px;
+	color: red;
+}
+.for_click {
+	float: right;
+	width: 303px;
+}
+.click {
+	height: 75px;
+	width: 301px;
+	background: #fdfbf1;
+	border: 1px solid #f0ede0;
+	margin-top: 7px;
+}
+.click button {
+	width: 287px;
+	height: 63px;
+	margin: 7px;
+	font-weight: bolder;
+	font-size: 18px;
+	background: #f0ede0;
+	color: #656565;
+}
+.click button:hover {
+	cursor: pointer;
+}
+.copy {
+	float: right;
+	width: 310px;
+	color: #656565;
+}
+footer .logo {
+	float: left;
+	color: #656565;
+}
+footer {
+	position: relative;
+	margin-top: 20px;
+}
+.outside {
+	margin: 14px;
+	border: 1px solid #ebebeb;
+	background: #fdfbf1;
+
+}
+.inside {
+	margin: 9px;
+	border: 1px solid #ebebeb;
+	font: Arial 11px;
+	
+}
+.butname {
+	margin-top: 38px;
+	width: 390px;
+	height: 30px;
+	float: right;
+}
+.name {
+	padding-top: 38px;
+	width: 100px;
+	float: left;
+}
+.butemail {
+	width: 390px;
+	height: 30px;
+	float: right;
+	margin: 30px 0;
+}
+.email {
+	padding: 30px 0 0 0;
+	margin-left: 0;
+	width: 100px;
+	float: left;
+}
+.butmessage {
+	width: 390px;
+	height: 280px;
+	float: right;
+	
+}
+.message {
+	
+	float: left;
+	width: 100px;
+}
+.conttop {
+	margin: 23px 18px 46px 21px;
+}
+.conttitle {
+	margin: 0 0 27px 22px;
+}
+.contup {
+	padding: 21px 30px 12px 17px;
+}
+.contbut{
+	width: 142px;
+	height: 34px;
+	margin: 13px 0 0 125px;
+	font: 14px Arial;
+	font-weight: bold;
+	color: #656565;
+	background: #fdfbf1;
+	
+}
+.contbut:hover{
+	background: #f0ede0;
+	cursor: pointer;
+}
+.adres {
+	font-weight: bold;
+	color: #656565;
+}
+.twit {
+	color: #40969f;
+	font-weight: bold;
+	font: 14px Arial;
+	margin: 0;
+	
+}
+.twitpic {
+	height: 60px;
+	width: 260px;
+	margin-top: 0;
+	padding: 0;
+}

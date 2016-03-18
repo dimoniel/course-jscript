@@ -1,0 +1,249 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Blinker - Variant 4</title>
+        <link href="styles/styles.css" rel="stylesheet" />
+        <style>
+		
+			main>div {
+				float: left;
+				margin-left: 20%
+			}
+			
+			aside {
+				float: right;
+				width: 35%;
+				text-align: left;
+			}
+		
+			fieldset {
+				margin: 0;
+				padding: 10px;
+				border: 2px solid #a4c696;
+			}
+			form fieldset fieldset {
+				margin: 0 0 10px;
+				padding: 0;
+				border: none;
+			}
+			
+			form>fieldset>fieldset:last-of-type {
+				margin: 0;
+			}
+						
+		</style>
+        <script>
+		
+			window.onload = init;
+			window.blinkerArray = [];
+			
+			function init() {
+				window.blinkerArray[0] = new Blinker();
+				window.blinkerArray[0].create();
+				control();				
+			};
+				
+			function Blinker(){
+					
+				var lights = document.createElement('div'),
+					lamps = lights.getElementsByClassName('lamp'),
+					stage = 0,
+					timeLine = [ 1000, 1000, 1000, 1000 ],
+					timeout;
+					
+				this.create = creating.bind(this);
+				this.on = start.bind(this);
+				this.off = stop.bind(this);
+				this.setTimers = setTimeLine.bind(this)
+				this.del = removing.bind(this);
+
+				function creating() {
+					this.off();
+					lights.innerHTML = "";
+					lights.setAttribute("class", "blinker");
+					for ( var key = 0; key < 3; key++ ) {
+						lights.innerHTML += '<div class="lamp blinkerLamp-'+ (key+1) +'"></div>';
+					};
+					document.body.getElementsByTagName("MAIN")[0].appendChild(lights);
+				};
+								
+				function start() {
+					this.off();
+					step(0);
+					
+					function step (newStage) {
+						changeStage(newStage);
+						timeout = setTimeout(function() {
+							step( ++stage%4 );
+						}, timeLine[stage] );
+					};
+					
+					function changeStage ( newStage ) {
+						stage = newStage;
+						
+						switch (newStage) {
+							case 0:
+								lamps[0].style.backgroundColor = "#ff0000";
+								lamps[1].removeAttribute("style");
+								lamps[2].removeAttribute("style");
+							break;
+							case 1:
+								lamps[1].style.backgroundColor = "#f6ff00";
+							break;
+							case 2:
+								lamps[0].removeAttribute("style");
+								lamps[1].removeAttribute("style");
+								lamps[2].style.backgroundColor = "#00c10e";
+							break;
+							case 3:
+								lamps[1].style.backgroundColor = "#f6ff00";
+							break;
+						}
+					};
+				};
+				
+				function stop() {
+					clearTimeout( timeout );
+					for (var i = 0; i < lamps.length; i++) {
+						lamps[i].removeAttribute("style");
+					}
+				};
+				
+				function setTimeLine( array ) {
+					if ( array && array.length && array.length > 3 ) {
+						timeLine = array;
+					}
+				};
+				
+				function removing() {
+					document.body.getElementsByTagName("MAIN")[0].removeChild(lights);
+				}
+			};
+			
+			function control() {
+				document.getElementById("addButton").addEventListener("click", add, false);
+				document.getElementById("delButton").addEventListener("click", del, false);
+				document.getElementById("onButton").addEventListener("click", on, false);
+				document.getElementById("offButton").addEventListener("click", off, false);
+				document.getElementById("setButton").addEventListener("click", setTimers, false);
+				
+				function add() {
+					var quantity = Math.abs(parseInt(document.getElementById("addQuantity").value));
+					quantity = (Number(quantity)===quantity) ? quantity : 1;
+					for (var i = 0; i < quantity; i++) {
+						window.blinkerArray.push(new Blinker());
+						window.blinkerArray[window.blinkerArray.length-1].create();
+					}
+				}
+				function del() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					numb = (Number(numb)===numb) ? numb : (window.blinkerArray.length-1);
+					window.blinkerArray[numb].del();
+					window.blinkerArray.splice(numb, 1);
+				}
+				function on() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					if (Number(numb)===numb) {
+					window.blinkerArray[numb].on();
+					} else {
+						for (var i = 0; i < blinkerArray.length; i++) {
+							window.blinkerArray[i].on();
+						}
+					}
+				}
+				function off() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					if (Number(numb)===numb) {
+					window.blinkerArray[numb].off();
+					} else {
+						for (var i = 0; i < blinkerArray.length; i++) {
+							window.blinkerArray[i].off();
+						}
+					}
+				}
+				function setTimers() {
+					var numb = Math.abs(parseInt(document.getElementById("Number").value));
+					var timeArray = [];
+					for (var i = 0; i < 4; i++) {
+						var per = Math.abs(parseInt(document.getElementById("setTime-" + (i+1)).value))
+						per = (Number(per)===per) ? per : 1000;
+						timeArray.push(per);
+					}
+					if (Number(numb)===numb) {
+					window.blinkerArray[numb].setTimers(timeArray);
+					} else {
+						for (var i = 0; i < blinkerArray.length; i++) {
+							window.blinkerArray[i].setTimers(timeArray);
+						}
+					}
+				}
+								
+			}
+			
+		</script>        
+        
+	</head>
+
+  <body>
+    	<div id="wrapper">
+    		<header>
+        		<h1>Let's to play with the Blinker</h1>
+        	</header>
+        
+       		<nav>
+        		<ul>
+            		<li><a href="index.html" title="Variant 1">Variant 1</a></li>
+                	<li><a href="variant2.html" title="Variant 2">Variant 2</a></li>
+                	<li><a href="variant3.html" title="Variant 3">Variant 3</a></li>
+                	<li class="active"><a href="variant4.html" title="Variant 4">Variant 4</a></li>
+                	<li><a href="variant5.html" title="Variant 5">Variant 5</a></li>
+                	<li><a href="variant6.html" title="Variant 6">Variant 6</a></li>
+                	<li><a href="variant7.html" title="Variant 7">Variant 7</a></li>
+                    <li><a href="variant8.html" title="Variant 8">Variant 8</a></li>
+            	</ul>
+        	</nav>
+        
+        	<main>
+            	
+            	<aside>
+        			<form>
+            			<fieldset>
+                        	<fieldset>
+                        		<input type="text" id="addQuantity" placeholder="Quantity" />
+                       			<input type="button" id="addButton" value="Add" />
+                            </fieldset>
+                            <fieldset>
+                        		<input type="text" id="Number" placeholder="Number" />
+                    			<input type="button" id="delButton" value="Del" />
+                        		<input type="button" id="onButton" value="On" />
+                    			<input type="button" id="offButton" value="Off" />
+                            </fieldset>
+                        	<fieldset>
+                        		<fieldset id="setTime">
+                        			<input type="text" id="setTime-1" placeholder="Time-1" />
+                            		<input type="text" id="setTime-2" placeholder="Time-2" />
+                            		<input type="text" id="setTime-3" placeholder="Time-3" />
+                            		<input type="text" id="setTime-4" placeholder="Time-4" />
+                        		</fieldset>
+                            	<input type="button" id="setButton" value="Set Time" />
+                        	</fieldset>
+                		</fieldset>	
+            		</form>
+                </aside>
+        	</main>
+            
+        	<footer>
+            	<p>
+        			<small>
+            		&copy;2015 Designed by Dmitry Fedorenko 
+            		</small>
+                </p>
+        	</footer>
+       </div>
+
+	</body>
+
+</html>

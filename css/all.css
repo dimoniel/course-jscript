@@ -128,7 +128,8 @@ a {
 				margin: 0 auto;
 			}
 		#main > .list_box p {
-			margin: 0 0 10px;
+			margin: 0;
+			padding: 5px 10px;
 		}
 		#main > .list_box ul {
 			margin: 0 0 20px;
@@ -248,7 +249,7 @@ a {
 		}
 @-webkit-keyframes circular {
 	100% {
-    	-ms-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
 		-moz-transform: rotate(360deg);
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
@@ -292,7 +293,7 @@ a {
 	margin: 0 1.5em 2em;
 }
 
-@media screen and (max-width:1240px) {
+@media screen and (max-width:1380px) {
 
 	#main #table-box {
 		margin: 20px;
@@ -357,7 +358,7 @@ a {
 #main table td > div:hover:after {
 	content: attr(data-reason);
 	display: block;
-	left: 100%;
+	left: 120%;
     width: 250%;
     padding: 5px 5px 9px;
     border-radius: 9px;
@@ -366,7 +367,7 @@ a {
 	z-index: 100;
 }
 #main table td:nth-child(n+20) > div:hover:after {
-	left: -250%;
+	left: -280%;
 }
 
 #main #link-list {

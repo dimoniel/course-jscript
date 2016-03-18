@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>home</title>
+	<script type="text/javascript">
+
+		function Home (){
+			this.homeNamber = this.counter()
+			this.windows = ''
+			this.doors = ''
+
+		}
+
+		Home.prototype = {
+			constructor: Home,
+			paintWin: function ( color ) {
+				this.windows = color;
+			},
+			paintDoor: function ( color ) {
+				this.doors = color;
+			},
+			paintAll: function ( color ) {
+				this.paintDoor(color);
+				this.paintWin(color);
+			},
+			counter: (function () {
+				var count = 1;
+				return function (){
+					return count++;
+				};
+			})()
+		}
+
+	</script>
+
+</head>
+<body>
+	Задачка № 1 (в консоли: конструктор создания домов <mark>"new Home (сюда передается номер дома)"</mark>, методы: ,<mark>paintWin</mark>, <mark>paintDoor</mark>, <mark>paintAll</mark> )
+</body>
+</html>
+

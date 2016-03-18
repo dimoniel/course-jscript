@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>lesson13</title>
+</head>
+<body>
+<script>
+    var totalMileage = 0;
+    var Horse = function(name){
+        this.name = name;
+        this.mileage = 0;
+        this.tider = 0;
+    };
+
+    Horse.prototype.run =function(dist){
+        var dist = dist;
+        this.mileage +=dist;
+
+        this.tired= Math.floor(this.mileage/1000);
+        console.log("Horse '"+this.name+"' have had run "
+                + this.mileage/1000 + " miles and "
+                + (this.tired >=10 ? "is tired ((" : "not tired!")
+        );
+
+        this.relax(function(){
+            console.log("Action after relax.");
+        });
+    };
+
+    Horse.prototype.relax = function(action){
+        var self = this;
+        if(this.tired >=10){
+            alert("Horse '"+self.name+"' has tired, wait a second please...");
+            setTimeout(function(){
+                self.tired = 0;
+                self.mileage = 0;
+                if(typeof action == 'function')
+                    action();
+            }, 1000);
+        }
+    };
+
+    var horse1 = new Horse('Dark');
+    var horse2 = new Horse('White');
+
+</script>
+</body>
+</html>
+
